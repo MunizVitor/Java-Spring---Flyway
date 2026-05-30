@@ -23,7 +23,7 @@ public class ProductModel {
 
     @Column(nullable = false, unique = true, length = 13)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ean;
+    private String ean;
 
     private String nomeProduto;
     private String descricaoProduto;

@@ -30,23 +30,25 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
     }
 
-    @GetMapping("products/{codigoProduto}")
-    public ResponseEntity getCodigoProducts(@PathVariable String codigoProduto) {
-        return ResponseEntity.status(HttpStatus.OK).body(repository.findByEan(codigoProduto)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado pelo código: " + codigoProduto)));
+    @GetMapping("products/codigo/{codigoProduto}")
+    public ResponseEntity<?> getCodigoProducts(@PathVariable String codigoProduto) {
+        return ResponseEntity.ok(repository.findByEan(codigoProduto)
+                        .orElseThrow(() -> new RuntimeException("Produto não encontrado pelo código: " + codigoProduto))
+        );
     }
 
-    @GetMapping("products/{descricaoProduto}")
-    public ResponseEntity getDescricaoProducts(@PathVariable String descricaoProduto) {
-        return ResponseEntity.status(HttpStatus.OK).body(repository.findByDescricaoProduto(descricaoProduto)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado pela descrição: " + descricaoProduto)));
+    @GetMapping("products/descricao/{descricaoProduto}")
+    public ResponseEntity<?> getDescricaoProducts(@PathVariable String descricaoProduto) {
+        return ResponseEntity.ok(repository.findByDescricaoProduto(descricaoProduto)
+                        .orElseThrow(() -> new RuntimeException("Produto não encontrado pela descrição: " + descricaoProduto))
+        );
     }
 
-    @GetMapping(value = "products", params = "nomeProduto")
-    public ResponseEntity<?> getNomeProducts(@RequestParam String nomeProduto) {
-        return repository.findByNomeProduto(nomeProduto)
-                .map(product -> ResponseEntity.ok(product))
-                .orElseGet(() -> (ResponseEntity<ProductModel>) ResponseEntity.status(HttpStatus.NOT_FOUND));
+    @GetMapping("products/nome/{nomeProduto}")
+    public ResponseEntity<?> getNomeProducts(@PathVariable String nomeProduto) {
+        return ResponseEntity.ok(repository.findByNomeProduto(nomeProduto)
+                        .orElseThrow(() -> new RuntimeException("Produto não encontrado pelo nome: " + nomeProduto))
+        );
     }
 
 }

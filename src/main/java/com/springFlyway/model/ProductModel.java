@@ -22,11 +22,24 @@ public class ProductModel {
     private UUID id;
 
     @Column(nullable = false, unique = true, length = 13)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String ean;
 
     private String nomeProduto;
     private String descricaoProduto;
     private BigDecimal precoProduto;
+
+    @PrePersist
+    public void gerarEan() {
+        if (ean == null) {
+            ean = gerarCodigoEan();
+        }
+    }
+
+    private String gerarCodigoEan() {
+        return String.valueOf(
+                (long)(Math.random() * 9000000000000L)
+                        + 1000000000000L
+        );
+    }
 
 }

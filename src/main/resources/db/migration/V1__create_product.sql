@@ -3,5 +3,5 @@ CREATE TABLE TB_PRODUCT (
     ean VARCHAR(13) NOT NULL,
     nomeProduto VARCHAR(100) NOT NULL,
     descricaoProduto VARCHAR(250) NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
 );

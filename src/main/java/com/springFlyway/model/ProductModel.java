@@ -26,6 +26,8 @@ public class ProductModel {
 
     private String nomeProduto;
     private String descricaoProduto;
+    private String categoriaProduto;
+    private BigDecimal precoCusto;
     private BigDecimal precoProduto;
 
     @PrePersist

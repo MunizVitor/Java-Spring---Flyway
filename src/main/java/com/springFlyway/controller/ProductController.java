@@ -51,4 +51,11 @@ public class ProductController {
         );
     }
 
+    @GetMapping("products/categoria/{categoriaProduto}")
+    public ResponseEntity<?> getCategoriaProducts(@PathVariable String categoriaProduto) {
+        return ResponseEntity.ok(repository.findByCategoriaProduto(categoriaProduto)
+                        .orElseThrow(() -> new RuntimeException("Produto não encontrado pela categoria: " + categoriaProduto))
+        );
+    }
+
 }

@@ -1,0 +1,3 @@
+ALTER TABLE TB_PRODUCT
+    ADD COLUMN categoria_produto VARCHAR(255),
+    ADD COLUMN preco_custo DECIMAL(10,2);

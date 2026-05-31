@@ -1,4 +1,4 @@
-INSERT INTO TB_PRODUCT (ean, nomeProduto, descricaoProduto, preco)
+INSERT INTO TB_PRODUCT (ean, nome_produto,descricao_produto,preco_produto)
 VALUES
 ('7891234567890', 'Notebook Dell', 'Notebook Dell Inspiron 15 com 16GB RAM', 4500.00),
 ('7891112223334', 'Monitor LG', 'Monitor LG 27 polegadas 4K UHD', 1899.90),

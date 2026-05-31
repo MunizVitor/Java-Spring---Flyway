@@ -1,7 +1,7 @@
 CREATE TABLE TB_PRODUCT (
     id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
-    ean VARCHAR(13) NOT NULL,
-    nomeProduto VARCHAR(100) NOT NULL,
-    descricaoProduto VARCHAR(250) NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL
+    ean VARCHAR(13),
+    nome_produto VARCHAR(255),
+    descricao_produto VARCHAR(255),
+    preco_produto DECIMAL(10,2)
 );

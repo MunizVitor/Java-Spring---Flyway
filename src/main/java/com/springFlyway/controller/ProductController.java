@@ -15,7 +15,7 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
-    @PostMapping("/save")
+    @PostMapping("products/save")
     public ResponseEntity createProduct(@Validated @RequestBody ProductModel product) {
         var productExistente = repository.findByNomeProduto(product.getNomeProduto());
         if(productExistente.isPresent()){
